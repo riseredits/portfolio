@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main # تأكد أن اسم الفرع الرئيسي في حسابك هو main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "videos"
+    label: "الفيديوهات (Portfolio Videos)"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "عنوان الفيديو", name: "title", widget: "string" }
+      - { label: "رابط الفيديو (Vimeo / YouTube / Bunny)", name: "video_url", widget: "string" }
+      - { label: "التصنيف (Category)", name: "category", widget: "select", options: ["Color Grading", "Fusion Effects", "Reels & Shorts", "Commercial"] }
+      - { label: "صورة الغلاف (Thumbnail)", name: "thumbnail", widget: "image" }
+      - { label: "وصف الفيديو (اختياري)", name: "description", widget: "text", required: false }
